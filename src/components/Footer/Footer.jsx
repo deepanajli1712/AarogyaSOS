@@ -10,53 +10,31 @@ function Footer() {
         <div className="inline-flex items-center justify-center">
           <Logo width="100px" />
         </div>
-        <div className="w-full lg:flex lg:justify-between lg:gap-12">
-          <div className="mb-6 lg:mb-0 lg:w-1/3">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+          <div>
             <h3 className="text-sm font-bold uppercase mb-4">Company</h3>
             <ul className="space-y-2">
-              <li>
-                <Link className="hover:text-white" to="/">Features</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Pricing</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Affiliate Program</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Press Kit</Link>
-              </li>
+              <li><Link className="hover:text-white" to="/">Features</Link></li>
+              <li><Link className="hover:text-white" to="/">Pricing</Link></li>
+              <li><Link className="hover:text-white" to="/">Affiliate Program</Link></li>
+              <li><Link className="hover:text-white" to="/">Press Kit</Link></li>
             </ul>
           </div>
-          <div className="mb-6 lg:mb-0 lg:w-1/3">
+          <div>
             <h3 className="text-sm font-bold uppercase mb-4">Support</h3>
             <ul className="space-y-2">
-              <li>
-                <Link className="hover:text-white" to="/">Account</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Help</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Contact Us</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Customer Support</Link>
-              </li>
+              <li><Link className="hover:text-white" to="/">Account</Link></li>
+              <li><Link className="hover:text-white" to="/">Help</Link></li>
+              <li><Link className="hover:text-white" to="/">Contact Us</Link></li>
+              <li><Link className="hover:text-white" to="/">Customer Support</Link></li>
             </ul>
           </div>
-          <div className="lg:w-1/3">
+          <div>
             <h3 className="text-sm font-bold uppercase mb-4">Legals</h3>
             <ul className="space-y-2">
-              <li>
-                <Link className="hover:text-white" to="/">Terms & Conditions</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Privacy Policy</Link>
-              </li>
-              <li>
-                <Link className="hover:text-white" to="/">Licensing</Link>
-              </li>
+              <li><Link className="hover:text-white" to="/">Terms &amp; Conditions</Link></li>
+              <li><Link className="hover:text-white" to="/">Privacy Policy</Link></li>
+              <li><Link className="hover:text-white" to="/">Licensing</Link></li>
             </ul>
           </div>
         </div>
@@ -66,7 +44,7 @@ function Footer() {
             <FaTwitter className="text-2xl hover:text-white cursor-pointer" />
             <FaInstagram className="text-2xl hover:text-white cursor-pointer" />
           </div>
-          <p className="text-sm">&copy; 2023. All Rights Reserved.</p>
+          <p className="text-sm">© 2023. All Rights Reserved.</p>
         </div>
       </div>
     </section>

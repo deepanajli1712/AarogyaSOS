@@ -53,13 +53,13 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
 
         {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-black text-gray-900 dark:text-white">Healthcare Dashboard</h1>
-            <p className="text-gray-500 dark:text-gray-400 mt-1">{new Date().toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <h1 className="text-xl sm:text-3xl font-black text-gray-900 dark:text-white truncate">Healthcare Dashboard</h1>
+            <p className="text-gray-500 dark:text-gray-400 mt-1 text-xs sm:text-sm">{new Date().toLocaleDateString('en-IN', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-xl px-3 py-2">
@@ -78,29 +78,29 @@ const Dashboard = () => {
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -translate-y-1/2 translate-x-1/2" />
           </div>
-          <div className="relative z-10 flex items-center justify-between">
+          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h2 className="text-white font-black text-2xl mb-1">Emergency SOS</h2>
-              <p className="text-red-200 text-sm">Tap to instantly alert emergency services & nearby helpers</p>
+              <h2 className="text-white font-black text-xl sm:text-2xl mb-1">Emergency SOS</h2>
+              <p className="text-red-200 text-xs sm:text-sm">Tap to instantly alert emergency services & nearby helpers</p>
             </div>
             <button
               onClick={() => navigate("/sos")}
-              className={`sos-btn px-8 py-4 bg-white text-red-600 rounded-xl font-black text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 ${showSOSPulse ? 'animate-glow-pulse' : ''}`}
+              className={`sos-btn w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-red-600 rounded-xl font-black text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${showSOSPulse ? 'animate-glow-pulse' : ''}`}
               id="dashboard-sos-btn"
             >
-              <AlertTriangle className="h-6 w-6 animate-pulse" />
+              <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 animate-pulse" />
               SOS
             </button>
           </div>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {stats.map((stat) => (
             <button
               key={stat.name}
               onClick={() => navigate(stat.link)}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 text-left group"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-5 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 text-left group"
             >
               <div className={`w-12 h-12 ${stat.bg} rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
                 {stat.emoji ? (
@@ -109,14 +109,14 @@ const Dashboard = () => {
                   <stat.icon className={`h-6 w-6 ${stat.text}`} />
                 )}
               </div>
-              <div className={`text-2xl font-black ${stat.text} mb-1`}>{stat.value}</div>
-              <div className="text-gray-500 dark:text-gray-400 text-sm font-medium">{stat.name}</div>
+              <div className={`text-xl sm:text-2xl font-black ${stat.text} mb-1`}>{stat.value}</div>
+              <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm font-medium">{stat.name}</div>
               <div className={`mt-2 h-0.5 w-8 rounded-full bg-gradient-to-r ${stat.color} group-hover:w-full transition-all duration-500`} />
             </button>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Hospital Search */}
           <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
             <div className="p-5 border-b border-gray-50 dark:border-gray-700">
@@ -245,7 +245,7 @@ const Dashboard = () => {
                 <TrendingUp className="h-5 w-5 text-blue-500" /> Health News
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-50 dark:divide-gray-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-gray-50 dark:divide-gray-700">
               {news.slice(0, 4).map((article, i) => (
                 <a
                   key={i}

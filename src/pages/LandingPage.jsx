@@ -166,14 +166,14 @@ const LandingPage = () => {
             <span className="text-white/90 text-sm font-medium">Emergency Services Active 24/7</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
             Emergency Care
             <span className="block mt-2 bg-gradient-to-r from-red-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
               At Your Fingertips
             </span>
           </h1>
 
-          <p className="text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-base sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
             Aarogya SOS connects you instantly to emergency services, nearby hospitals, and a community of helpers — all in one tap.
           </p>
 
@@ -199,7 +199,7 @@ const LandingPage = () => {
           </div>
 
           {/* Quick stats */}
-          <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="mt-10 sm:mt-16 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg mx-auto animate-fade-in" style={{ animationDelay: '0.5s' }}>
             {[
               { value: '< 5 min', label: 'Response Time' },
               { value: '3200+', label: 'Hospitals' },
@@ -289,7 +289,7 @@ const LandingPage = () => {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
               <span className="inline-block px-4 py-1.5 bg-violet-500/30 text-violet-300 rounded-full text-sm font-semibold mb-6 border border-violet-500/30">
                 🆕 New Feature
@@ -391,7 +391,7 @@ const LandingPage = () => {
             The future of healthcare is immersive. Aarogya SOS brings cutting-edge AR and VR experiences to your medical journey.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* AR Card */}
             <div className="group relative bg-gradient-to-br from-cyan-900/50 to-blue-900/50 rounded-2xl p-8 border border-cyan-500/20 hover:border-cyan-500/50 transition-all duration-500 text-left overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -524,7 +524,7 @@ const LandingPage = () => {
       {/* ===== FOOTER ===== */}
       <footer className="bg-gray-900 py-12">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center">
                 <Heart className="h-5 w-5 text-white" />

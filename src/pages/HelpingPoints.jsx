@@ -142,12 +142,12 @@ const HelpingPoints = () => {
             {/* Header */}
             <div className="bg-gradient-to-r from-violet-600 to-indigo-700 text-white px-6 py-8">
                 <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                         <div>
-                            <h1 className="text-3xl font-black mb-1">Community Helper</h1>
-                            <p className="text-violet-200">Help others, earn ResQ Coins 🪙</p>
+                            <h1 className="text-2xl sm:text-3xl font-black mb-1">Community Helper</h1>
+                            <p className="text-violet-200 text-sm">Help others, earn ResQ Coins 🪙</p>
                         </div>
-                        <div className="text-right">
+                        <div className="sm:text-right">
                             <div className="text-3xl font-black text-yellow-400">{coins.toLocaleString()}</div>
                             <div className="text-violet-200 text-sm">ResQ Coins</div>
                         </div>
@@ -184,9 +184,9 @@ const HelpingPoints = () => {
             <div className="max-w-4xl mx-auto px-6 mt-6">
                 <div className="flex gap-2 bg-gray-100 dark:bg-gray-800 rounded-xl p-1 mb-6">
                     {[
-                        { id: 'requests', label: '🚨 Help Requests', count: requests.length },
+                        { id: 'requests', label: '🚨 Requests', count: requests.length },
                         { id: 'leaderboard', label: '🏆 Leaderboard', count: null },
-                        { id: 'redeem', label: '🎁 Redeem Coins', count: null },
+                        { id: 'redeem', label: '🎁 Redeem', count: null },
                     ].map(tab => (
                         <button
                             key={tab.id}
@@ -240,11 +240,12 @@ const HelpingPoints = () => {
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-400 mb-4">
                                             <div className="flex items-center gap-1">
                                                 <MapPin className="h-4 w-4 text-blue-500" />
-                                                {req.distance} • {req.location}
+                                                {req.distance}
                                             </div>
+                                            <div className="text-gray-400">{req.location}</div>
                                             <div className="flex items-center gap-1">
                                                 <Clock className="h-4 w-4 text-gray-400" />
                                                 {req.time}
@@ -337,14 +338,14 @@ const HelpingPoints = () => {
                             { title: 'Premium Health Report', desc: 'Comprehensive AI health analysis', cost: 750, icon: '📊', available: coins >= 750 },
                             { title: 'VIP Hospital Fast Track', desc: 'Skip the queue at partner hospitals', cost: 1000, icon: '⚡', available: coins >= 1000 },
                         ].map((item, i) => (
-                            <div key={i} className={`bg-white dark:bg-gray-800 rounded-xl p-5 border dark:border-gray-700 shadow-sm flex items-center gap-4 ${item.available ? 'border-gray-100' : 'border-gray-100 opacity-60'}`}>
-                                <div className="text-3xl">{item.icon}</div>
-                                <div className="flex-1">
-                                    <div className="font-bold text-gray-900 dark:text-white">{item.title}</div>
-                                    <div className="text-gray-500 dark:text-gray-400 text-sm">{item.desc}</div>
+                            <div key={i} className={`bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-5 border dark:border-gray-700 shadow-sm flex items-center gap-3 sm:gap-4 ${item.available ? 'border-gray-100' : 'border-gray-100 opacity-60'}`}>
+                                <div className="text-2xl sm:text-3xl flex-shrink-0">{item.icon}</div>
+                                <div className="flex-1 min-w-0">
+                                    <div className="font-bold text-gray-900 dark:text-white text-sm sm:text-base">{item.title}</div>
+                                    <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm">{item.desc}</div>
                                 </div>
-                                <div className="text-right">
-                                    <div className="text-amber-600 font-bold">{item.cost} 🪙</div>
+                                <div className="text-right flex-shrink-0">
+                                    <div className="text-amber-600 font-bold text-sm">{item.cost} 🪙</div>
                                     <button
                                         disabled={!item.available}
                                         onClick={() => {
@@ -354,7 +355,7 @@ const HelpingPoints = () => {
                                                 setTimeout(() => setNotification(null), 3000);
                                             }
                                         }}
-                                        className={`mt-1 px-3 py-1 rounded-lg text-sm font-semibold transition ${item.available ? 'bg-violet-600 text-white hover:bg-violet-700' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
+                                        className={`mt-1 px-3 py-1 rounded-lg text-xs sm:text-sm font-semibold transition ${item.available ? 'bg-violet-600 text-white hover:bg-violet-700' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}
                                     >
                                         {item.available ? 'Redeem' : 'Need more'}
                                     </button>

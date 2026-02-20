@@ -179,17 +179,17 @@ const Appointments = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-4 sm:space-y-6">
 
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 className="text-3xl font-black text-gray-900 dark:text-white">Appointments</h1>
-            <p className="text-gray-500 dark:text-gray-400 mt-1">Manage your hospital appointments</p>
+            <h1 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white">Appointments</h1>
+            <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm">Manage your hospital appointments</p>
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-semibold"
+            className="flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 font-semibold w-full sm:w-auto"
           >
             <Plus className="h-5 w-5" /> New Appointment
           </button>
@@ -221,19 +221,19 @@ const Appointments = () => {
         )}
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
           {[
             { title: "Total", value: totalAppointments, color: "from-blue-500 to-indigo-600", bg: "bg-blue-50", text: "text-blue-700", icon: Calendar },
             { title: "Scheduled", value: scheduled, color: "from-sky-500 to-blue-600", bg: "bg-sky-50", text: "text-sky-700", icon: Clock },
             { title: "Completed", value: completed, color: "from-emerald-500 to-teal-600", bg: "bg-emerald-50", text: "text-emerald-700", icon: CheckCircle },
             { title: "Cancelled", value: cancelled, color: "from-red-500 to-rose-600", bg: "bg-red-50", text: "text-red-700", icon: XCircle },
           ].map((s, i) => (
-            <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm">
-              <div className={`w-10 h-10 ${s.bg} rounded-xl flex items-center justify-center mb-3`}>
-                <s.icon className={`h-5 w-5 ${s.text}`} />
+            <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-5 border border-gray-100 dark:border-gray-700 shadow-sm">
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 ${s.bg} rounded-xl flex items-center justify-center mb-2 sm:mb-3`}>
+                <s.icon className={`h-4 w-4 sm:h-5 sm:w-5 ${s.text}`} />
               </div>
-              <div className={`text-3xl font-black ${s.text}`}>{s.value}</div>
-              <div className="text-gray-500 dark:text-gray-400 text-sm mt-1">{s.title}</div>
+              <div className={`text-2xl sm:text-3xl font-black ${s.text}`}>{s.value}</div>
+              <div className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm mt-1">{s.title}</div>
             </div>
           ))}
         </div>
@@ -245,18 +245,18 @@ const Appointments = () => {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
               <input
                 type="text"
-                placeholder="Search by hospital or description..."
+                placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-1.5 flex-wrap">
               {["all", "scheduled", "completed", "cancelled"].map(s => (
                 <button
                   key={s}
                   onClick={() => setStatusFilter(s)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 capitalize ${statusFilter === s
+                  className={`px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 capitalize ${statusFilter === s
                     ? 'bg-blue-600 text-white shadow-md'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                     }`}
